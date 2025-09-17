@@ -91,7 +91,7 @@ public class App {
             public void actionPerformed(ActionEvent e) {
                 try{
                     double celsius3 = Double.parseDouble(inputField3.getText());
-                    double kelvin = celsius3 - 273;
+                    double kelvin = celsius3 + 273;
                     outputLabel3.setText(String.format("Kelvin: %.2f", kelvin));
                 } catch (NumberFormatException ex) {
                     outputLabel3.setText("Kelvin: Invalid input");
