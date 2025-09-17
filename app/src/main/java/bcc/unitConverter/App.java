@@ -60,9 +60,51 @@ public class App {
         frame.add(outputLabel1);
 
         //add your other rows to the frame here
+        frame.setLayout(new GridLayout(3, 4, 5, 5));
+
+        JLabel inputLabel2 = new JLabel("Celsius:");
+        JTextField inputField2 = new JTextField();
+        JButton convertButton2 = new JButton("Convert");
+        JLabel outputLabel2 = new JLabel("Fahrenheit: ");
+        convertButton2.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                try{
+                    double celsius2 = Double.parseDouble(inputField2.getText());
+                    double fahrenheit2 = (celsius2 * 9 / 5) + 32;
+                    outputLabel2.setText(String.format("Fahrenhiet: %.2f", fahrenheit2));
+                } catch (NumberFormatException ex) {
+                    outputLabel2.setText("Fahrenheit: Invalid input");
+                }
+            }
+        });
+        frame.add(inputLabel2);
+        frame.add(inputField2);
+        frame.add(convertButton2);
+        frame.add(outputLabel2);
+        //now kelvin below
+
+        JLabel inputLabel3 = new JLabel("Celsius:");
+        JTextField inputField3 = new JTextField();
+        JButton convertButton3 = new JButton("Convert");
+        JLabel outputLabel3 = new JLabel("Kelvin: ");
+        convertButton3.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                try{
+                    double celsius3 = Double.parseDouble(inputField3.getText());
+                    double kelvin = celsius3 - 273;
+                    outputLabel3.setText(String.format("Kelvin: %.2f", kelvin));
+                } catch (NumberFormatException ex) {
+                    outputLabel3.setText("Kelvin: Invalid input");
+                }
+            }
+        });
+        frame.add(inputLabel3);
+        frame.add(inputField3);
+        frame.add(convertButton3);
+        frame.add(outputLabel3);
 
         //you will also want to change the size of the frame when you add more rows
-        frame.setSize(500, 80);
+        frame.setSize(800, 240);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
     }
